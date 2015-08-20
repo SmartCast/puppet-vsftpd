@@ -60,6 +60,10 @@ class vsftpd (
   $ftp_username            = undef,
   $banner_file             = undef,
   $allow_writeable_chroot  = undef,
+  $ssl_enable               = undef,
+  $ssl_sslv2                = undef,
+  $ssl_sslv3                = undef,
+  $ssl_tlsv1                = undef,
   $directives              = {},
 ) inherits ::vsftpd::params {
 

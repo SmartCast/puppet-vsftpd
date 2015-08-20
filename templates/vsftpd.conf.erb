@@ -168,6 +168,21 @@ listen_port=<%= @listen_port %>
 # Make sure, that one of the listen options is commented !!
 #listen_ipv6=YES
 
+
+<% if @ssl_enable %>
+# Enable FTPS 
+ssl_enable=<%= @ssl_enable %>
+<% if @ssl_sslv2 %>
+ssl_sslv2=<%= @ssl_sslv2 %>
+<% end %>
+<% if @ssl_sslv3 %>
+ssl_sslv3=<%= @ssl_sslv3 %>
+<% end %>
+<% if @ssl_tlsv1 %>
+ssl_tlsv1=<%= @ssl_tlsv1 %>
+<% end %>
+<% end %>
+
 pam_service_name=<%= @pam_service_name %>
 userlist_enable=<%= @userlist_enable %>
 <% if @userlist_deny -%>
