@@ -60,12 +60,21 @@ class vsftpd (
   $ftp_username            = undef,
   $banner_file             = undef,
   $allow_writeable_chroot  = undef,
-  $ssl_enable               = undef,
-  $ssl_sslv2                = undef,
-  $ssl_sslv3                = undef,
-  $ssl_tlsv1                = undef,
+  $ssl_enable              = undef,
+  $ssl_sslv2               = undef,
+  $ssl_sslv3               = undef,
+  $ssl_tlsv1               = undef,
+  $rsa_cert_file           = undef,
+  $rsa_private_key_file    = undef,
+  $allow_anon_ssl          = undef,
+  $force_local_data_ssl    = undef,
+  $force_local_logins_ssl  = undef,
+  $pasv_address            = undef,
   $directives              = {},
 ) inherits ::vsftpd::params {
+
+  if ( $ssl_enable == 'YES' and $rsa_cert_file == undef )
+    { fail ("Filepath for RSA certificate not defined.") }
 
   package { $package_name: ensure => installed }
 
